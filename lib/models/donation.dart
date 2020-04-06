@@ -4,8 +4,8 @@ import 'package:rmi/utils.dart';
 
 class Donation {
   DateTime lastUpdate;
-  BigInt pemasukan;
-  BigInt pengeluaran;
+  int pemasukan;
+  int pengeluaran;
   String nama;
   String rek;
   String other;
@@ -15,8 +15,8 @@ class Donation {
   factory Donation.fromJson(json) {
     return Donation(
       lastUpdate: DateTime.parse(json['lastUpdate'].toString()),
-      pemasukan: BigInt.parse(json['pemasukan'].toString()),
-      pengeluaran: BigInt.parse(json['pengeluaran'].toString()),
+      pemasukan: int.parse(json['pemasukan'].toString()),
+      pengeluaran: int.parse(json['pengeluaran'].toString()),
       nama: json['info']['name'].toString(),
       rek: json['info']['rek'].toString(),
       other: json['info']['other'].toString(),
