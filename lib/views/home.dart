@@ -118,17 +118,20 @@ class _HomeState extends State<Home> {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
-            return Container(
-              margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
-              padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 18.0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Column(
+            return GestureDetector(
+              onTap: () => Scaffold
+                  .of(context)
+                  .showSnackBar(SnackBar(content: Text(index.toString()))),
+              child: Container(
+                margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
+                padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 18.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Row(
+                  children: <Widget>[
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Row(
@@ -151,12 +154,14 @@ class _HomeState extends State<Home> {
                         SizedBox(
                           height: 10,
                         ),
-                        Text("Oleh Ruang Muda Indramayu",
-                        style: donationListTextFooterStyle,),
+                        Text(
+                          "Oleh Ruang Muda Indramayu",
+                          style: donationListTextFooterStyle,
+                        ),
                       ],
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           }),
