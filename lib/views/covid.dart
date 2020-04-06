@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
           children: <Widget>[
             _buildTopStack(),
             SizedBox(
-              height: 40.0,
+              height: 50.0,
             ),
             Padding(
               padding: EdgeInsets.all(25),
@@ -43,20 +43,27 @@ class _HomeState extends State<Home> {
       children: <Widget>[
         Container(
           color: mainForeColor,
-          height: 250.0,
+          height: 210.0,
         ),
         Center(
           child: Padding(
-            padding: const EdgeInsets.only(top: 45.0, left: 25.0, right: 25.0),
+            padding: const EdgeInsets.only(top: 50.0),
             child: Column(
               children: <Widget>[
-                Text("Ruang Muda Indramayu", style: donationText),
+                Text(
+                  "Donasi terkumpul",
+                  style: donationSubText,
+                ),
                 SizedBox(
-                  height: 20.0,
+                  height: 10.0,
+                ),
+                Text("Rp. 15.000.000", style: donationText),
+                SizedBox(
+                  height: 10.0,
                 ),
                 Text(
-                  "Donasi Terbuka Penanganan Covid-19 di Kab. Indramayu untuk tenaga medis dan warga terdampak.",
-                  style: donationSubText,
+                  "* Sampai 01 Januari 2020",
+                  style: donationSubTextItalic,
                 ),
               ],
             ),
@@ -75,17 +82,6 @@ class _HomeState extends State<Home> {
                 BoxShadow(
                     color: Colors.black12, spreadRadius: 5.5, blurRadius: 5.5)
               ],
-            ),
-            child: ListTile(
-              leading: Icon(
-                LineAwesomeIcons.gift,
-                color: mainForeColor,
-                size: 32,
-              ),
-              title: Text(
-                "Salurkan donasi Anda untuk kebaikan bersama!",
-                style: notificationCardStyle,
-              ),
             ),
           ),
         ),
@@ -114,7 +110,7 @@ class _HomeState extends State<Home> {
   _buildDonationList() {
     return Container(
       child: ListView.builder(
-          itemCount: 1,
+          itemCount: 3,
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
@@ -141,18 +137,17 @@ class _HomeState extends State<Home> {
                           ],
                         ),
                         SizedBox(
-                          height: 8,
+                          height: 5,
                         ),
-                        Text("#IndramayuLawancorona"),
+                        Text("Versi "),
                         SizedBox(
                           height: 2,
                         ),
-                        Text("#AyoIndramayubisa"),
+                        Text("Diupdate pada "),
                         SizedBox(
                           height: 10,
                         ),
-                        Text("Oleh Ruang Muda Indramayu",
-                        style: donationListTextFooterStyle,),
+                        Text("ada"),
                       ],
                     ),
                   ),
