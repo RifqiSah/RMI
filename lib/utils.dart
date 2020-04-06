@@ -1,0 +1,1 @@
+const API_ENDPOINT  = "https://alriftech.com/api/v2/apps/rmi";
