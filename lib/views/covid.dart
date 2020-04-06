@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:line_awesome_icons/line_awesome_icons.dart';
 import 'package:rmi/style.dart';
 
-class Home extends StatefulWidget {
+class Covid extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _CovidState createState() => _CovidState();
 }
 
-class _HomeState extends State<Home> {
+class _CovidState extends State<Covid> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,11 +95,11 @@ class _HomeState extends State<Home> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text(
-            "Bantu siapa hari ini?",
+            "Perkembangan hari ini",
             style: headerTextStyle,
           ),
           Text(
-            "Lihat Semua",
+            "Selengkapnya",
             style: headerTextLinkStyle,
           )
         ],
@@ -109,52 +109,151 @@ class _HomeState extends State<Home> {
 
   _buildDonationList() {
     return Container(
-      child: ListView.builder(
-          itemCount: 3,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            return Container(
-              margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
-              padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 18.0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
+      child: GridView.count(
+        crossAxisCount: 3,
+        shrinkWrap: true,
+        physics: BouncingScrollPhysics(),
+        children: <Widget>[
+          Container(
+            child: Center(
+              child: Card(
+                  color: appOrangeDarkColor,
+                  margin: EdgeInsets.only(right: 10, bottom: 10),
+                  child: Center(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                              "Penanganan Covid-19",
-                              style: donationListTextStyle,
-                            ),
-                          ],
+                        Text(
+                          "Positif",
+                          style: covidCaseTitleStyle,
                         ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text("Versi "),
-                        SizedBox(
-                          height: 2,
-                        ),
-                        Text("Diupdate pada "),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text("ada"),
+                        Text(
+                          "0",
+                          style: covidCaseCountStyle,
+                        )
                       ],
                     ),
-                  ),
-                ],
-              ),
-            );
-          }),
+                  )),
+            ),
+          ),
+          Container(
+            child: Center(
+              child: Card(
+                  color: appRedColor,
+                  margin: EdgeInsets.only(right: 10, bottom: 10),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "Meninggal",
+                          style: covidCaseTitleStyle,
+                        ),
+                        Text(
+                          "0",
+                          style: covidCaseCountStyle,
+                        )
+                      ],
+                    ),
+                  )),
+            ),
+          ),
+          Container(
+            child: Center(
+              child: Card(
+                  color: appGreenColor,
+                  margin: EdgeInsets.only(right: 10, bottom: 10),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "Sembuh",
+                          style: covidCaseTitleStyle,
+                        ),
+                        Text(
+                          "0",
+                          style: covidCaseCountStyle,
+                        )
+                      ],
+                    ),
+                  )),
+            ),
+          ),
+          Container(
+            child: Center(
+              child: Card(
+                  color: appOrangeColor,
+                  margin: EdgeInsets.only(right: 10, bottom: 10),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "PDP",
+                          style: covidCaseTitleStyle,
+                        ),
+                        Text(
+                          "0",
+                          style: covidCaseCountStyle,
+                        )
+                      ],
+                    ),
+                  )),
+            ),
+          ),
+          Container(
+            child: Center(
+              child: Card(
+                  color: appYellowColor,
+                  margin: EdgeInsets.only(right: 10, bottom: 10),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "ODP",
+                          style: covidCaseTitleStyle,
+                        ),
+                        Text(
+                          "0",
+                          style: covidCaseCountStyle,
+                        )
+                      ],
+                    ),
+                  )),
+            ),
+          ),
+          Container(
+            child: Center(
+              child: Card(
+                  color: appBlueColor,
+                  margin: EdgeInsets.only(right: 10, bottom: 10),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "ODP +",
+                          style: covidCaseTitleStyle,
+                        ),
+                        Text(
+                          "0",
+                          style: covidCaseCountStyle,
+                        )
+                      ],
+                    ),
+                  )),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
