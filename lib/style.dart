@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 const mainBgColor = Color(0xFFf2f2f2);
-const mainForeColor = Color(0xFF17c26a);
+const mainForeColor = Color(0xFF1786c2);
 
 const appGreenColor = Color(0xFF34eb98);
 const appRedColor = Color(0xFFeb3434);
