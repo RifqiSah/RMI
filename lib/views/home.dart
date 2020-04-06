@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_icons/line_awesome_icons.dart';
 import 'package:rmi/style.dart';
+import 'package:rmi/views/covid.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -115,16 +116,26 @@ class _HomeState extends State<Home> {
   }
 
   _buildDonationList() {
+    var _donations = [
+      {
+        "route": "/covid",
+        "nama": "Penanganan Covid-19",
+        "col-1": "##IndramayuLawanCorona",
+        "col-2": "#AyoIndramayuBisa",
+        "oleh": "Ruang Muda Indramayu"
+      }
+    ];
+
     return Container(
       child: ListView.builder(
-          itemCount: 1,
+          itemCount: _donations.length,
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             return GestureDetector(
-              onTap: () => Scaffold
-                  .of(context)
-                  .showSnackBar(SnackBar(content: Text(index.toString()))),
+              onTap: () {
+                Navigator.pushNamed(context, _donations[index]['route']);
+              },
               child: Container(
                 margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
                 padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 18.0),
@@ -141,7 +152,7 @@ class _HomeState extends State<Home> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text(
-                              "Penanganan Covid-19",
+                              _donations[index]['nama'],
                               style: donationListTextStyle,
                             ),
                           ],
@@ -149,16 +160,16 @@ class _HomeState extends State<Home> {
                         SizedBox(
                           height: 8,
                         ),
-                        Text("#IndramayuLawancorona"),
+                        Text(_donations[index]['col-1']),
                         SizedBox(
                           height: 2,
                         ),
-                        Text("#AyoIndramayubisa"),
+                        Text(_donations[index]['col-2']),
                         SizedBox(
                           height: 10,
                         ),
                         Text(
-                          "Oleh Ruang Muda Indramayu",
+                          "Oleh " + _donations[index]['oleh'],
                           style: donationListTextFooterStyle,
                         ),
                       ],

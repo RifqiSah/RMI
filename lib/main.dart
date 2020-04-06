@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rmi/views/covid.dart';
 import 'package:rmi/views/index.dart';
 
 void main() => runApp(MyApp());
@@ -13,6 +14,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Index(),
+      routes: <String, WidgetBuilder>{
+        '/index': (BuildContext context) => Index(),
+        '/covid': (BuildContext context) => Covid(),
+      },
     );
   }
 }
