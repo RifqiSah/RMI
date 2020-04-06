@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:line_awesome_icons/line_awesome_icons.dart';
 import 'package:rmi/models/covid19.dart';
+import 'package:rmi/models/donation.dart';
 import 'package:rmi/style.dart';
 
 class Covid extends StatefulWidget {
@@ -11,8 +12,33 @@ class Covid extends StatefulWidget {
 }
 
 class _CovidState extends State<Covid> {
+  Donation _donation;
+  String _dona_in = "0";
+  String _dona_out = "0";
+  String _dona_lastUpdate = "--";
+
+  String _dona_name = "";
+  String _dona_rek = "";
+  String _dona_other = "";
+
   Covid19 _covid;
   String _lastUpdate = "--";
+
+  void loadDonation() {
+    Donation.getDonation().then((val) {
+      setState(() {
+        _donation = val;
+        _dona_in = NumberFormat("#,##0", "id").format(_donation.pemasukan);
+        _dona_out = NumberFormat("#,##0", "id").format(_donation.pengeluaran);
+
+        _dona_name = "a.n " + _donation.nama;
+        _dona_rek = _donation.rek;
+        _dona_other = _donation.other;
+
+        _dona_lastUpdate = DateFormat("dd MMM yyyy").format(_donation.lastUpdate);
+      });
+    });
+  }
 
   void loadCovid() {
     Covid19.getCovid().then((val) {
@@ -27,6 +53,7 @@ class _CovidState extends State<Covid> {
   void initState() {
     super.initState();
 
+    loadDonation();
     loadCovid();
   }
 
@@ -67,25 +94,62 @@ class _CovidState extends State<Covid> {
           color: mainForeColor,
           height: 210.0,
         ),
-        Center(
+        Positioned(
+          left: 0,
+          right: 0,
           child: Padding(
-            padding: const EdgeInsets.only(top: 50.0),
+            padding: const EdgeInsets.only(top: 50.0, left: 25.0, right: 25.0),
             child: Column(
               children: <Widget>[
-                Text(
-                  "Donasi terkumpul",
-                  style: donationSubText,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Donasi Terkumpul",
+                          style: donationSubText,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          "Rp.",
+                          style: donationSubSubText,
+                        ),
+                        Text(_dona_in, style: donationText),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: <Widget>[
+                        Text(
+                          "Pengeluaran",
+                          style: donationSubText,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          "Rp.",
+                          style: donationSubSubText,
+                        ),
+                        Text(_dona_out, style: donationText),
+                      ],
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                Text("Rp. 15.000.000", style: donationText),
-                SizedBox(
-                  height: 10.0,
-                ),
-                Text(
-                  "* Sampai 01 Januari 2020",
-                  style: donationSubTextItalic,
+                Row(
+                  children: <Widget>[
+                    SizedBox(
+                      height: 40.0,
+                    ),
+                    Text(
+                      "*) Sampai " + _dona_lastUpdate,
+                      style: donationSubTextItalic,
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -107,12 +171,21 @@ class _CovidState extends State<Covid> {
             ),
             child: Column(
               children: <Widget>[
-                Text("1340007922494 (MANDIRI)", style: notificationCardStyle,),
-                Text("089669493116 (DANA, OVO & GOPAY)", style: notificationCardStyle,),
+                Text(
+                  _dona_rek,
+                  style: notificationCardStyle,
+                ),
+                Text(
+                  _dona_other,
+                  style: notificationCardStyle,
+                ),
                 SizedBox(
                   height: 10.0,
                 ),
-                Text("a.n Yefa Shinta Lathifah", style: notificationCardBoldStyle,),
+                Text(
+                  _dona_name,
+                  style: notificationCardBoldStyle,
+                ),
               ],
             ),
           ),
@@ -140,7 +213,7 @@ class _CovidState extends State<Covid> {
   }
 
   _buildCovidData() {
-    return Container(
+    return _covid == null ? Padding(padding: EdgeInsets.only(top: 50.0),child: CircularProgressIndicator()) : Container(
       child: GridView.count(
         crossAxisCount: 3,
         shrinkWrap: true,
@@ -290,7 +363,7 @@ class _CovidState extends State<Covid> {
   }
 
   _buildCovidFooter() {
-    return Container(
+    return _covid == null ? Container() : Container(
       child: Padding(
         padding: const EdgeInsets.only(top: 15.0),
         child: Text("Sumber: " + _covid.source),
