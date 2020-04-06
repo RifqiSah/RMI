@@ -12,14 +12,19 @@ const appOrangeColor = Color(0xFFebb434);
 const appOrangeDarkColor = Color(0xFFeb8934);
 
 const notificationCardStyle = TextStyle(
-    color: Colors.black45, fontSize: 14.0, fontWeight: FontWeight.w500,);
+  color: Colors.black45,
+  fontSize: 14.0,
+);
 
 const notificationCardBoldStyle = TextStyle(
-  color: Colors.black87, fontSize: 14.0, fontWeight: FontWeight.w500,);
+  color: Colors.black87,
+  fontSize: 14.0,
+  fontWeight: FontWeight.w500,
+);
 
 const donationText = TextStyle(
   color: Colors.white,
-  fontSize: 30.0,
+  fontSize: 25.0,
   fontWeight: FontWeight.w600,
 );
 
@@ -28,26 +33,44 @@ const donationSubText = TextStyle(
   fontSize: 15.0,
 );
 
+const donationSubSubText = TextStyle(
+  color: Colors.white,
+  fontSize: 12.0,
+);
+
 const donationSubTextItalic = TextStyle(
   color: Colors.white60,
   fontSize: 13.0,
   fontStyle: FontStyle.italic,
 );
 
-const headerTextStyle =
-    TextStyle(color: Colors.black, fontWeight: FontWeight.w500,);
+const headerTextStyle = TextStyle(
+  color: Colors.black,
+  fontWeight: FontWeight.w500,
+);
 
-const headerTextLinkStyle =
-    TextStyle(color: mainForeColor, fontWeight: FontWeight.w500,);
+const headerTextLinkStyle = TextStyle(
+  color: mainForeColor,
+  fontWeight: FontWeight.w500,
+);
 
-const covidCaseTitleStyle =
-    TextStyle(fontSize: 15, fontWeight: FontWeight.w400,);
+const covidCaseTitleStyle = TextStyle(
+  fontSize: 15,
+  fontWeight: FontWeight.w400,
+);
 
-const covidCaseCountStyle =
-    TextStyle(fontSize: 30, fontWeight: FontWeight.w600,);
+const covidCaseCountStyle = TextStyle(
+  fontSize: 30,
+  fontWeight: FontWeight.w600,
+);
 
-const donationListTextStyle =
-    TextStyle(color: Colors.black, fontSize: 16.0, fontWeight: FontWeight.w500,);
+const donationListTextStyle = TextStyle(
+  color: Colors.black,
+  fontSize: 16.0,
+  fontWeight: FontWeight.w500,
+);
 
-const donationListTextFooterStyle =
-    TextStyle(color: Colors.black38, fontSize: 10.0,);
+const donationListTextFooterStyle = TextStyle(
+  color: Colors.black38,
+  fontSize: 10.0,
+);
