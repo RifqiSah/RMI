@@ -14,6 +14,9 @@ const appOrangeDarkColor = Color(0xFFeb8934);
 const notificationCardStyle = TextStyle(
     color: Colors.black45, fontSize: 14.0, fontWeight: FontWeight.w500,);
 
+const notificationCardBoldStyle = TextStyle(
+  color: Colors.black87, fontSize: 14.0, fontWeight: FontWeight.w500,);
+
 const donationText = TextStyle(
   color: Colors.white,
   fontSize: 30.0,

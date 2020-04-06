@@ -105,6 +105,16 @@ class _CovidState extends State<Covid> {
                     color: Colors.black12, spreadRadius: 5.5, blurRadius: 5.5)
               ],
             ),
+            child: Column(
+              children: <Widget>[
+                Text("1340007922494 (MANDIRI)", style: notificationCardStyle,),
+                Text("089669493116 (DANA, OVO & GOPAY)", style: notificationCardStyle,),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Text("a.n Yefa Shinta Lathifah", style: notificationCardBoldStyle,),
+              ],
+            ),
           ),
         ),
       ],
@@ -140,7 +150,7 @@ class _CovidState extends State<Covid> {
             child: Center(
               child: Card(
                   color: appOrangeDarkColor,
-                  margin: EdgeInsets.only(right: 10, bottom: 10),
+                  margin: EdgeInsets.only(right: 5, bottom: 5),
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -163,7 +173,7 @@ class _CovidState extends State<Covid> {
             child: Center(
               child: Card(
                   color: appRedColor,
-                  margin: EdgeInsets.only(right: 10, bottom: 10),
+                  margin: EdgeInsets.only(left: 5, right: 5, bottom: 5),
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -186,7 +196,7 @@ class _CovidState extends State<Covid> {
             child: Center(
               child: Card(
                   color: appGreenColor,
-                  margin: EdgeInsets.only(right: 10, bottom: 10),
+                  margin: EdgeInsets.only(left: 5, bottom: 5),
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -209,7 +219,7 @@ class _CovidState extends State<Covid> {
             child: Center(
               child: Card(
                   color: appOrangeColor,
-                  margin: EdgeInsets.only(right: 10, bottom: 10),
+                  margin: EdgeInsets.only(right: 5, top: 5),
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -232,7 +242,7 @@ class _CovidState extends State<Covid> {
             child: Center(
               child: Card(
                   color: appYellowColor,
-                  margin: EdgeInsets.only(right: 10, bottom: 10),
+                  margin: EdgeInsets.only(left: 5, right: 5, top: 5),
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -255,7 +265,7 @@ class _CovidState extends State<Covid> {
             child: Center(
               child: Card(
                   color: appBlueColor,
-                  margin: EdgeInsets.only(right: 10, bottom: 10),
+                  margin: EdgeInsets.only(left: 5, top: 5),
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
