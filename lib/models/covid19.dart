@@ -18,8 +18,6 @@ class Covid19 {
 
   factory Covid19.fromJson(json) {
     return Covid19(
-      lastUpdate: DateTime.parse(json['metadata']['lastUpdate'].toString()),
-      source: json['metadata']['source'].toString(),
       positif: int.parse(json['positif']['value'].toString()),
       pdp: int.parse(json['pdp']['value'].toString()),
       pdp_negatif: int.parse(json['pdp_negatif']['value'].toString()),
@@ -28,6 +26,8 @@ class Covid19 {
       odp_selesai: int.parse(json['odp_selesai']['value'].toString()),
       meninggal: int.parse(json['meninggal']['value'].toString()),
       sembuh: int.parse(json['sembuh']['value'].toString()),
+      lastUpdate: DateTime.parse(json['metadata']['lastUpdate'].toString()).add(Duration(hours: 7)),
+      source: json['metadata']['source'].toString(),
     );
   }
 

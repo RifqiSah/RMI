@@ -43,7 +43,7 @@ class _CovidState extends State<Covid> {
     Covid19.getCovid().then((val) {
       setState(() {
         _covid = val;
-        _lastUpdate = DateFormat("dd-MMM-yyyy hh:mm").format(_covid.lastUpdate);
+        _lastUpdate = DateFormat("dd-MMM-yyyy HH:mm").format(_covid.lastUpdate);
       });
     });
   }
