@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:line_awesome_icons/line_awesome_icons.dart';
+import 'package:rmi/models/covid19.dart';
 import 'package:rmi/style.dart';
 
 class Covid extends StatefulWidget {
@@ -9,6 +11,25 @@ class Covid extends StatefulWidget {
 }
 
 class _CovidState extends State<Covid> {
+  Covid19 _covid;
+  String _lastUpdate = "--";
+
+  void loadCovid() {
+    Covid19.getCovid().then((val) {
+      setState(() {
+        _covid = val;
+        _lastUpdate = DateFormat("dd-MMM-yyyy hh:mm").format(_covid.lastUpdate);
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    loadCovid();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,8 +46,9 @@ class _CovidState extends State<Covid> {
               padding: EdgeInsets.all(25),
               child: Column(
                 children: <Widget>[
-                  _buildDonationHeader(),
-                  _buildDonationList(),
+                  _buildCovidHeader(),
+                  _buildCovidData(),
+                  _buildCovidFooter(),
                 ],
               ),
             ),
@@ -89,17 +111,17 @@ class _CovidState extends State<Covid> {
     );
   }
 
-  _buildDonationHeader() {
+  _buildCovidHeader() {
     return Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text(
-            "Perkembangan hari ini",
+            "Update terakhir pada",
             style: headerTextStyle,
           ),
           Text(
-            "Selengkapnya",
+            _lastUpdate,
             style: headerTextLinkStyle,
           )
         ],
@@ -107,7 +129,7 @@ class _CovidState extends State<Covid> {
     );
   }
 
-  _buildDonationList() {
+  _buildCovidData() {
     return Container(
       child: GridView.count(
         crossAxisCount: 3,
@@ -129,7 +151,7 @@ class _CovidState extends State<Covid> {
                           style: covidCaseTitleStyle,
                         ),
                         Text(
-                          "0",
+                          _covid.positif.toString(),
                           style: covidCaseCountStyle,
                         )
                       ],
@@ -152,7 +174,7 @@ class _CovidState extends State<Covid> {
                           style: covidCaseTitleStyle,
                         ),
                         Text(
-                          "0",
+                          _covid.meninggal.toString(),
                           style: covidCaseCountStyle,
                         )
                       ],
@@ -175,7 +197,7 @@ class _CovidState extends State<Covid> {
                           style: covidCaseTitleStyle,
                         ),
                         Text(
-                          "0",
+                          _covid.sembuh.toString(),
                           style: covidCaseCountStyle,
                         )
                       ],
@@ -198,7 +220,7 @@ class _CovidState extends State<Covid> {
                           style: covidCaseTitleStyle,
                         ),
                         Text(
-                          "0",
+                          _covid.pdp.toString(),
                           style: covidCaseCountStyle,
                         )
                       ],
@@ -221,7 +243,7 @@ class _CovidState extends State<Covid> {
                           style: covidCaseTitleStyle,
                         ),
                         Text(
-                          "0",
+                          _covid.odp.toString(),
                           style: covidCaseCountStyle,
                         )
                       ],
@@ -244,7 +266,7 @@ class _CovidState extends State<Covid> {
                           style: covidCaseTitleStyle,
                         ),
                         Text(
-                          "0",
+                          _covid.odp_selesai.toString(),
                           style: covidCaseCountStyle,
                         )
                       ],
@@ -253,6 +275,15 @@ class _CovidState extends State<Covid> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  _buildCovidFooter() {
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 15.0),
+        child: Text("Sumber: " + _covid.source),
       ),
     );
   }
