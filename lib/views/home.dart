@@ -108,13 +108,11 @@ class _HomeState extends State<Home> {
   }
 
   _buildDonationList() {
-    final List<String> entries = <String>['A', 'B', 'C'];
-    final List<int> colorCodes = <int>[600, 500, 100];
-
     return Container(
       child: ListView.builder(
-          itemCount: entries.length,
+          itemCount: 3,
           shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             return Container(
               margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
@@ -123,7 +121,38 @@ class _HomeState extends State<Home> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(5),
               ),
-              child: Center(child: Text('Entry ${entries[index]}')),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              "Penanganan Covid-19",
+                              style: donationListTextStyle,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text("Versi "),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        Text("Diupdate pada "),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text("ada"),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             );
           }),
     );

@@ -30,3 +30,5 @@ const headerTextLinkStyle = TextStyle(
   color: mainForeColor,
   fontWeight: FontWeight.w500
 );
+
+const donationListTextStyle = TextStyle();
