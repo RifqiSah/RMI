@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rmi/views/home.dart';
+import 'package:rmi/views/covid.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Home(),
+      home: Covid(),
     );
   }
 }
