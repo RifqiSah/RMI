@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:line_awesome_icons/line_awesome_icons.dart';
 import 'package:rmi/models/covid19.dart';
 import 'package:rmi/models/donation.dart';
 import 'package:rmi/style.dart';

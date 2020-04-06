@@ -43,12 +43,15 @@ class _HomeState extends State<Home> {
       children: <Widget>[
         Container(
           color: mainForeColor,
-          height: 250.0,
+          height: 220.0,
         ),
-        Center(
+        Positioned(
+          left: 0,
+          right: 0,
           child: Padding(
             padding: const EdgeInsets.only(top: 45.0, left: 25.0, right: 25.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text("Ruang Muda Indramayu", style: donationText),
                 SizedBox(
