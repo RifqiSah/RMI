@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rmi/views/home.dart';
-import 'package:rmi/views/covid.dart';
+import 'package:rmi/views/index.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,9 +10,9 @@ class MyApp extends StatelessWidget {
       title: 'Ruang Muda Indramayu',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
-      home: Covid(),
+      home: Index(),
     );
   }
 }
