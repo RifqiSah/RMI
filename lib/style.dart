@@ -41,7 +41,7 @@ const covidCaseTitleStyle =
     TextStyle(fontSize: 15, fontWeight: FontWeight.w400,);
 
 const covidCaseCountStyle =
-    TextStyle(fontSize: 40, fontWeight: FontWeight.w600,);
+    TextStyle(fontSize: 30, fontWeight: FontWeight.w600,);
 
 const donationListTextStyle =
     TextStyle(color: Colors.black, fontSize: 16.0, fontWeight: FontWeight.w500,);
