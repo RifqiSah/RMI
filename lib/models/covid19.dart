@@ -19,13 +19,13 @@ class Covid19 {
   factory Covid19.fromJson(json) {
     return Covid19(
       positif: int.parse(json['positif']['value'].toString()),
+      meninggal: int.parse(json['positif_meninggal']['value'].toString()),
+      sembuh: int.parse(json['positif_sembuh']['value'].toString()),
       pdp: int.parse(json['pdp']['value'].toString()),
       pdp_negatif: int.parse(json['pdp_negatif']['value'].toString()),
-      pdp_negatif_meninggal: int.parse(json['pdp_negatif_meninggal']['value'].toString()),
+      pdp_negatif_meninggal: int.parse(json['pdp_meninggal_negatif']['value'].toString()),
       odp: int.parse(json['odp']['value'].toString()),
-      odp_selesai: int.parse(json['odp_selesai']['value'].toString()),
-      meninggal: int.parse(json['meninggal']['value'].toString()),
-      sembuh: int.parse(json['sembuh']['value'].toString()),
+      odp_selesai: int.parse(json['odp_selesai_pemantauan']['value'].toString()),
       lastUpdate: DateTime.parse(json['metadata']['lastUpdate'].toString()).add(Duration(hours: 7)),
       source: json['metadata']['source'].toString(),
     );
